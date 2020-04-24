@@ -240,7 +240,7 @@ sub lstatus {
 	my $s = $ld->{status};
 
 	if ($s eq 'OK' or $s eq 'Disabled') {
-	} elsif ($s eq 'Failed' or $s eq 'Interim Recovery Mode') {
+	} elsif ($s eq 'Failed' or $s eq 'Interim Recovery Mode' or $s =~ '^Recovering.+$') {
 		$this->critical;
 	} elsif ($s eq 'Rebuild' or $s eq 'Recover') {
 		$this->warning;
